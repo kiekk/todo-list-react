@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import { MdAdd, MdCheckBox, MdRemoveCircleOutline } from 'react-icons/md'
+import './style.scss'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="TodoTemplate">
+      <div className="app-title">일정 관리</div>
+      <div className="content">
+        <form className="TodoInsert">
+          <input type="text" placeholder="할 일을 입력하세요" />
+          <button type="submit">
+            <MdAdd />
+          </button>
+        </form>
+        <div className="TodoList">
+          <div className="TodoListItem">
+            <div className="checkbox">
+              <MdCheckBox />
+              <div className="text">할일1</div>
+            </div>
+            <div className="remove">
+              <MdRemoveCircleOutline />
+            </div>
+          </div>
+          <div className="TodoListItem">
+            <div className="checkbox">
+              <MdCheckBox />
+              <div className="text">할일1</div>
+            </div>
+            <div className="remove">
+              <MdRemoveCircleOutline />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
