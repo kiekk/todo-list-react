@@ -1,20 +1,23 @@
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import { MdAdd } from 'react-icons/md'
 import './TodoInsert.scss'
 
 const TodoInsert = ({ onInsert }) => {
   const [text, setText] = useState('')
 
-  const onChange = (e) => {
+  const onChange = useCallback((e) => {
     setText(e.target.value)
-  }
+  }, [])
 
-  const onSubmit = (e) => {
-    e.preventDefault()
+  const onSubmit = useCallback(
+    (e) => {
+      e.preventDefault()
 
-    onInsert(text)
-    setText('')
-  }
+      onInsert(text)
+      setText('')
+    },
+    [text, onInsert],
+  )
 
   return (
     <div className="content">
