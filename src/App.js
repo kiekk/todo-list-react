@@ -10,6 +10,7 @@ import './style.scss'
 import cn from 'classnames'
 
 function App() {
+  const [text, setText] = useState('')
   const [todoList, setTodoList] = useState([
     {
       id: 1,
@@ -45,12 +46,20 @@ function App() {
     setTodoList(todoList.filter((todo) => todo.id !== id))
   }
 
+  const onChange = (e) => {
+    setText(e.target.value)
+  }
   return (
     <div className="TodoTemplate">
       <div className="app-title">일정 관리</div>
       <div className="content">
         <form className="TodoInsert">
-          <input type="text" placeholder="할 일을 입력하세요" />
+          <input
+            type="text"
+            placeholder="할 일을 입력하세요"
+            value={text}
+            onChange={onChange}
+          />
           <button type="submit">
             <MdAdd />
           </button>
