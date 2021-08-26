@@ -33,6 +33,14 @@ function App() {
     },
   ])
 
+  const onToggle = (id) => {
+    setTodoList(
+      todoList.map((todo) =>
+        todo.id === id ? { ...todo, checked: !todo.checked } : todo,
+      ),
+    )
+  }
+
   return (
     <div className="TodoTemplate">
       <div className="app-title">일정 관리</div>
@@ -46,7 +54,10 @@ function App() {
         <div className="TodoList">
           {todoList.map(({ id, todo, checked }) => (
             <div className="TodoListItem" key={id}>
-              <div className={cn('checkbox', { checked })}>
+              <div
+                className={cn('checkbox', { checked })}
+                onClick={() => onToggle(id)}
+              >
                 {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
                 <div className="text">{todo}</div>
               </div>
