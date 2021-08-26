@@ -5,7 +5,6 @@ import TodoList from './components/TodoList'
 import TodoInsert from './components/TodoInsert'
 
 function App() {
-  const [text, setText] = useState('')
   const [todoList, setTodoList] = useState([
     {
       id: 1,
@@ -41,25 +40,18 @@ function App() {
     setTodoList(todoList.filter((todo) => todo.id !== id))
   }
 
-  const onChange = (e) => {
-    setText(e.target.value)
-  }
-
-  const onSubmit = (e) => {
-    e.preventDefault()
-
+  const onInsert = (text) => {
     const todo = {
       id: todoList.length + 1,
       todo: text,
       checked: false,
     }
     setTodoList(todoList.concat(todo))
-    setText('')
   }
 
   return (
     <TodoTemplate>
-      <TodoInsert />
+      <TodoInsert onInsert={onInsert} />
       <TodoList list={todoList} />
     </TodoTemplate>
   )
