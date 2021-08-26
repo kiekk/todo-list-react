@@ -41,6 +41,10 @@ function App() {
     )
   }
 
+  const onRemove = (id) => {
+    setTodoList(todoList.filter((todo) => todo.id !== id))
+  }
+
   return (
     <div className="TodoTemplate">
       <div className="app-title">일정 관리</div>
@@ -61,7 +65,7 @@ function App() {
                 {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
                 <div className="text">{todo}</div>
               </div>
-              <div className="remove">
+              <div className="remove" onClick={() => onRemove(id)}>
                 <MdRemoveCircleOutline />
               </div>
             </div>
