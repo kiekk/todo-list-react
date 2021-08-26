@@ -1,9 +1,10 @@
+import { useState } from 'react'
 import './App.css'
 import { MdAdd, MdCheckBox, MdRemoveCircleOutline } from 'react-icons/md'
 import './style.scss'
 
 function App() {
-  const todoList = [
+  const [todoList, setTodoList] = useState([
     {
       id: 1,
       todo: '할일 1',
@@ -24,7 +25,7 @@ function App() {
       todo: '할일 4',
       done: false,
     },
-  ]
+  ])
 
   return (
     <div className="TodoTemplate">
