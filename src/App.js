@@ -9,6 +9,7 @@ import {
 import cn from 'classnames'
 import TodoTemplate from './components/TodoTemplate'
 import TodoList from './components/TodoList'
+import TodoInsert from './components/TodoInsert'
 
 function App() {
   const [text, setText] = useState('')
@@ -65,20 +66,8 @@ function App() {
 
   return (
     <TodoTemplate>
-      <div className="content">
-        <form className="TodoInsert" onSubmit={onSubmit}>
-          <input
-            type="text"
-            placeholder="할 일을 입력하세요"
-            value={text}
-            onChange={onChange}
-          />
-          <button type="submit">
-            <MdAdd />
-          </button>
-        </form>
-        <TodoList list={todoList} />
-      </div>
+      <TodoInsert />
+      <TodoList list={todoList} />
     </TodoTemplate>
   )
 }
