@@ -9,6 +9,7 @@ import {
 import './style.scss'
 import cn from 'classnames'
 import TodoTemplate from './components/TodoTemplate'
+import TodoList from './components/TodoList'
 
 function App() {
   const [text, setText] = useState('')
@@ -77,22 +78,7 @@ function App() {
             <MdAdd />
           </button>
         </form>
-        <div className="TodoList">
-          {todoList.map(({ id, todo, checked }) => (
-            <div className="TodoListItem" key={id}>
-              <div
-                className={cn('checkbox', { checked })}
-                onClick={() => onToggle(id)}
-              >
-                {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
-                <div className="text">{todo}</div>
-              </div>
-              <div className="remove" onClick={() => onRemove(id)}>
-                <MdRemoveCircleOutline />
-              </div>
-            </div>
-          ))}
-        </div>
+        <TodoList list={todoList} />
       </div>
     </TodoTemplate>
   )
