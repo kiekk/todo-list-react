@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import './App.css'
 import TodoTemplate from './components/TodoTemplate'
 import TodoList from './components/TodoList'
@@ -28,6 +28,8 @@ function App() {
     },
   ])
 
+  const nextId = useRef(5)
+
   const onToggle = (id) => {
     setTodoList(
       todoList.map((todo) =>
@@ -42,11 +44,12 @@ function App() {
 
   const onInsert = (text) => {
     const todo = {
-      id: todoList.length + 1,
+      id: nextId.current,
       todo: text,
       checked: false,
     }
     setTodoList(todoList.concat(todo))
+    nextId.current += 1
   }
 
   return (
