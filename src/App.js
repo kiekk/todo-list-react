@@ -52,7 +52,7 @@ function App() {
   return (
     <TodoTemplate>
       <TodoInsert onInsert={onInsert} />
-      <TodoList list={todoList} />
+      <TodoList list={todoList} onToggle={onToggle} />
     </TodoTemplate>
   )
 }
