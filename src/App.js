@@ -49,11 +49,24 @@ function App() {
   const onChange = (e) => {
     setText(e.target.value)
   }
+
+  const onSubmit = (e) => {
+    e.preventDefault()
+
+    const todo = {
+      id: todoList.length + 1,
+      todo: text,
+      checked: false,
+    }
+    setTodoList(todoList.concat(todo))
+    setText('')
+  }
+
   return (
     <div className="TodoTemplate">
       <div className="app-title">일정 관리</div>
       <div className="content">
-        <form className="TodoInsert">
+        <form className="TodoInsert" onSubmit={onSubmit}>
           <input
             type="text"
             placeholder="할 일을 입력하세요"
