@@ -1,12 +1,5 @@
 import { useState } from 'react'
 import './App.css'
-import {
-  MdAdd,
-  MdCheckBox,
-  MdCheckBoxOutlineBlank,
-  MdRemoveCircleOutline,
-} from 'react-icons/md'
-import cn from 'classnames'
 import TodoTemplate from './components/TodoTemplate'
 import TodoList from './components/TodoList'
 import TodoInsert from './components/TodoInsert'
