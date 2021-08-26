@@ -8,22 +8,22 @@ function App() {
     {
       id: 1,
       todo: '할일 1',
-      done: false,
+      checked: false,
     },
     {
       id: 2,
       todo: '할일 2',
-      done: false,
+      checked: false,
     },
     {
       id: 3,
       todo: '할일 3',
-      done: false,
+      checked: false,
     },
     {
       id: 4,
       todo: '할일 4',
-      done: false,
+      checked: true,
     },
   ])
 
