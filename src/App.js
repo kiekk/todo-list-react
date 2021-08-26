@@ -8,6 +8,7 @@ import {
 } from 'react-icons/md'
 import './style.scss'
 import cn from 'classnames'
+import TodoTemplate from './components/TodoTemplate'
 
 function App() {
   const [text, setText] = useState('')
@@ -63,8 +64,7 @@ function App() {
   }
 
   return (
-    <div className="TodoTemplate">
-      <div className="app-title">일정 관리</div>
+    <TodoTemplate>
       <div className="content">
         <form className="TodoInsert" onSubmit={onSubmit}>
           <input
@@ -94,7 +94,7 @@ function App() {
           ))}
         </div>
       </div>
-    </div>
+    </TodoTemplate>
   )
 }
 
