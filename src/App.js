@@ -1,7 +1,13 @@
 import { useState } from 'react'
 import './App.css'
-import { MdAdd, MdCheckBox, MdRemoveCircleOutline } from 'react-icons/md'
+import {
+  MdAdd,
+  MdCheckBox,
+  MdCheckBoxOutlineBlank,
+  MdRemoveCircleOutline,
+} from 'react-icons/md'
 import './style.scss'
+import cn from 'classnames'
 
 function App() {
   const [todoList, setTodoList] = useState([
@@ -38,11 +44,11 @@ function App() {
           </button>
         </form>
         <div className="TodoList">
-          {todoList.map((todo) => (
-            <div className="TodoListItem" key={todo.id}>
-              <div className="checkbox">
-                <MdCheckBox />
-                <div className="text">{todo.todo}</div>
+          {todoList.map(({ id, todo, checked }) => (
+            <div className="TodoListItem" key={id}>
+              <div className={cn('checkbox', { checked })}>
+                {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
+                <div className="text">{todo}</div>
               </div>
               <div className="remove">
                 <MdRemoveCircleOutline />
